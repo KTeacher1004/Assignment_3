@@ -1,0 +1,97 @@
+KhiemTrab,POtet123,Tran Hoang Khiem,903116489,Khiem@admin.com,Passport,19832127,20,1
+KhiemTrab,POtet123,Tran Hoang Khiem,903116489,Khiem@admin.com,Passport,19832126,10,2
+KhiemTrab,POtet123,Tran Hoang Khiem,903116489,Khiem@admin.com,Passport,19832125,30,3
+KhiemTrab,POtet123,Tran Hoang Khiem,903116489,Khiem@admin.com,Passport,19832124,40,4
+KhiemTran1,Poree2,T H K,13131,Gmail@,Passport,24241,10,-1
+
+
+int choice;
+    while (true) {
+        cout << "Choose what to change:" << endl;
+        cout << "1. Username" << endl;
+        cout << "2. Password" << endl;
+        cout << "3. Full name" << endl;
+        cout << "4. Phone number" << endl;
+        cout << "5. Email" << endl;
+        cout << "6. ID type" << endl;
+        cout << "7. ID number" << endl;
+        cout << "8. Back to main menu" << endl;
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+
+        switch (choice) {
+            case 1: {
+                string new_username;
+                cout << "Enter new username: ";
+                cin >> new_username;
+                m.setUsername(new_username);
+                break;
+            }
+            case 2: {
+                string new_password;
+                while (true) {
+                    cout << "Enter new password: ";
+                    cin >> new_password;
+                    if (PasswordPolicy(new_password)) {
+                        cout << "Password accepted!" << endl;
+                        break;
+                    } else {
+                        cout << "Password must contain at least one uppercase letter, one lowercase letter, and one digit." << endl;
+                    }
+                }
+                m.setPassword(new_password);
+                break;
+            }
+            case 3: {
+                string new_full_name;
+                cin.ignore();
+                cout << "Enter new full name: ";
+                getline(cin, new_full_name);
+                m.setFullName(new_full_name);
+                break;
+            }
+            case 4: {
+                int new_phone_number;
+                cout << "Enter new phone number: ";
+                cin >> new_phone_number;
+                m.setPhoneNumber(new_phone_number);
+                break;
+            }
+            case 5: {
+                string new_email;
+                cout << "Enter new email: ";
+                cin >> new_email;
+                m.setEmail(new_email);
+                break;
+            }
+            case 6: {
+                string new_ID_type;
+                while (true) {
+                    cout << "Enter new ID type (Passport or Citizen ID): ";
+                    cin >> new_ID_type;
+                    if (new_ID_type == "Passport" || new_ID_type == "Citizen ID") {
+                        break;
+                    } else {
+                        cout << "Invalid ID Type, please enter 'Passport' or 'Citizen ID'." << endl;
+                    }
+                }
+                m.setIDType(new_ID_type);
+                break;
+            }
+            case 7: {
+                string new_IDnumber;
+                cout << "Enter new ID/Passport number: ";
+                cin >> new_IDnumber;
+                m.setIDNumber(new_IDnumber);
+                break;
+            }
+            case 8: {
+                cout << "Back to main menu." << endl;
+                return;
+            }
+            default: {
+                cout << "Invalid choice. Please choose again." << endl;
+            }
+        }
+    }

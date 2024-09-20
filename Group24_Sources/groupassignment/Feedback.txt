@@ -1,0 +1,4 @@
+ChechVarPhuc,KhiemTran,1,SimpLore
+Khiem,KhiemTran,4,TuyetVoi
+PhucLy,KhiemTran,1,SimpLore
+PhucLy,KhiemTran,2,Angry so Much
